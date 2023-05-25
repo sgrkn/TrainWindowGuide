@@ -319,6 +319,7 @@
 				INFOPLIST_FILE = TrainWindowGuide/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "アプリの使用中のみ位置情報の取得を許可する";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "常に位置情報の取得を許可する";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "アプリの使用中のみ位置情報の取得を許可する";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -348,6 +349,7 @@
 				INFOPLIST_FILE = TrainWindowGuide/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "アプリの使用中のみ位置情報の取得を許可する";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "常に位置情報の取得を許可する";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "アプリの使用中のみ位置情報の取得を許可する";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

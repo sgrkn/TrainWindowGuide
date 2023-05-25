@@ -14,7 +14,6 @@ class SearchViewController: UIViewController, CLLocationManagerDelegate {
     let goldenRatio = 1.618
     @IBOutlet var mapView: MKMapView!
     var locationManager: CLLocationManager!
-    @IBOutlet weak var locationName: UITextField!
     
     @IBAction func clickZoomin(_ sender: Any) {
         print("[DBG]clickZoomin")
@@ -42,63 +41,44 @@ class SearchViewController: UIViewController, CLLocationManagerDelegate {
         myLock.unlock()
     }
     
-    let FMT_url_rev_geo = "https://www.finds.jp/ws/rgeocode.php?lat=%f&lon=%f&json"
-    
-    @IBAction func clickLocation(_ sender: Any) {
-        myLock.lock()  //
-        let latitude = mapView.region.center.latitude
-        let longitude = mapView.region.center.longitude
-        myLock.unlock()
-
-        let url = URL(string: String(format: FMT_url_rev_geo, latitude, longitude))!
-        let request = URLRequest(url: url)
-        let session = URLSession.shared
-        session.dataTask(with: request) {
-            (data, response, error) in
-            if error == nil, let data = data, let response = response as? HTTPURLResponse {
-                print("statusCode: \(response.statusCode)")
-                let jsonString: String = String(data: data, encoding: String.Encoding.utf8) ?? ""
-                var locationData =  jsonString.data(using: String.Encoding.utf8)!
-                do {
-                    let items = try JSONSerialization.jsonObject(with: locationData) as! Dictionary<String, Any>
-                    let result = items["result"] as! Dictionary<String, Any>
-                    let prefecture = result["prefecture"] as! Dictionary<String, Any>
-                    let municipality = result["municipality"] as! Dictionary<String, Any>
-                    let local = result["local"] as! Array<Any>
-                    let local0 = local[0] as! Dictionary<String, Any>
-                    self.locationName.text = prefecture["pname"] as! String
-                    self.locationName.text! += municipality["mname"] as! String
-                    self.locationName.text! += local0["section"] as! String
-                }
-                catch {
-                    print(error)
-                }
-            }
-        }.resume()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         locationManager = CLLocationManager()  // 変数を初期化
         locationManager.delegate = self  // delegateとしてself(自インスタンス)を設定
-
+        
         locationManager.startUpdatingLocation()  // 位置情報更新を指示
         locationManager.requestWhenInUseAuthorization()  // 位置情報取得の許可を得る
         
         mapView.showsUserLocation = true
+        
+        // ピンを立てる
+        // ピンを立てたい緯度・経度をセット
+        let coordinate = CLLocationCoordinate2DMake(36.3922466621714, 139.057872435089)
+        // 現在地の場合
+        // let coordinate = mapView.userLocation.coordinate
+        // ピンを生成
+        let pin = MKPointAnnotation()
+        // ピンのタイトル・サブタイトルをセット
+        pin.title = "利根川"
+        pin.subtitle = "流域面積日本一の河川"
+        // ピンに一番上で作った位置情報をセット
+        pin.coordinate = coordinate
+        // mapにピンを表示する
+        mapView.addAnnotation(pin)
+    }
 
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations:[CLLocation]) {
         let longitude = (locations.last?.coordinate.longitude.description)!
         let latitude = (locations.last?.coordinate.latitude.description)!
-        print("[DBG]longitude : " + longitude)
-        print("[DBG]latitude : " + latitude)
+        // print("[DBG]longitude : " + longitude)
+        // print("[DBG]latitude : " + latitude)
         
-        myLock.lock()
-        mapView.setCenter((locations.last?.coordinate)!, animated: true)
-        myLock.unlock()
+        // myLock.lock()
+        // mapView.setCenter((locations.last?.coordinate)!, animated: true)
+        // myLock.unlock()
     }
-}
 
