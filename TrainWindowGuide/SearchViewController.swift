@@ -76,9 +76,6 @@ class SearchViewController: UIViewController, CLLocationManagerDelegate {
         let latitude = (locations.last?.coordinate.latitude.description)!
         // print("[DBG]longitude : " + longitude)
         // print("[DBG]latitude : " + latitude)
-        
-        // myLock.lock()
-        // mapView.setCenter((locations.last?.coordinate)!, animated: true)
-        // myLock.unlock()
+
     }
 
