@@ -34,7 +34,7 @@ class SearchViewController: UIViewController, CLLocationManagerDelegate {
             print("[DBG]latitudeDelta-1 : " + mapView.region.span.latitudeDelta.description)
             var regionSpan:MKCoordinateSpan = MKCoordinateSpan()
             regionSpan.latitudeDelta = mapView.region.span.latitudeDelta * goldenRatio
-         // regionSpan.latitudeDelta = mapView.region.span.longitudeDelta * GoldenRatio
+            // regionSpan.latitudeDelta = mapView.region.span.longitudeDelta * GoldenRatio
             mapView.region.span = regionSpan
             print("[DBG]latitudeDelta-2 : " + mapView.region.span.latitudeDelta.description)
         }
@@ -55,21 +55,46 @@ class SearchViewController: UIViewController, CLLocationManagerDelegate {
         
         // ピンを立てる
         // ピンを立てたい緯度・経度をセット
-        let coordinate = CLLocationCoordinate2DMake(36.3922466621714, 139.057872435089)
+        // let coordinate = CLLocationCoordinate2DMake(36.3922466621714, 139.057872435089)
         // 現在地の場合
         // let coordinate = mapView.userLocation.coordinate
         // ピンを生成
-        let pin = MKPointAnnotation()
+        // let pin = MKPointAnnotation()
         // ピンのタイトル・サブタイトルをセット
-        pin.title = "利根川"
-        pin.subtitle = "流域面積日本一の河川"
+        // pin.title = "利根川"
+        // pin.subtitle = "流域面積日本一の河川"
         // ピンに一番上で作った位置情報をセット
-        pin.coordinate = coordinate
-        // mapにピンを表示する
-        mapView.addAnnotation(pin)
+        // pin.coordinate = coordinate
+        
+        //配列・for文で複数のピンを立てる
+        //structの定義
+        struct pinDatas {
+            var longitude:Double;
+            var latitude:Double;
+            var title:Int;
+            var subtitle:Int;
+        }
+        
+        let pinDatas = [[36.3922466621714, 139.057872435089, "利根川", "流域面積が日本一の河川"] as [Any]]
+        for pin in pinDatas {
+            let str1:String = pinDatas[pin][0]
+            let _:Double = Double(str1)!
+            let str2:String = pinDatas[pin][1]
+            let _:Double = Double(str2)!
+            let coordinate = CLLocationCoordinate2DMake(Double(str1)!, Double(str2)!)
+            // ピンを生成
+            let pin = MKPointAnnotation()
+            // ピンのタイトル・サブタイトルをセット
+            pin.title = pinDatas[pin][2]
+            pin.subtitle = pinDatas[pin][3]
+            // ピンに一番上で作った位置情報をセット
+            pin.coordinate = coordinate
+            // mapにピンを表示する
+            mapView.addAnnotation(pin)
+        }
     }
-
-    }
+    
+}
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations:[CLLocation]) {
         let longitude = (locations.last?.coordinate.longitude.description)!

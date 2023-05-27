@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		436F42D62A21E101008EC1DD /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436F42D42A21E101008EC1DD /* BookmarkViewController.swift */; };
+		436F42D72A21E101008EC1DD /* BookmarkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 436F42D52A21E101008EC1DD /* BookmarkViewController.xib */; };
 		4396CC992A1F477000FB8495 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4396CC982A1F477000FB8495 /* MapKit.framework */; };
 		43E8B4E42A1CBDE900F10D39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E8B4E32A1CBDE900F10D39 /* AppDelegate.swift */; };
 		43E8B4E62A1CBDE900F10D39 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E8B4E52A1CBDE900F10D39 /* SceneDelegate.swift */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		436F42D42A21E101008EC1DD /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
+		436F42D52A21E101008EC1DD /* BookmarkViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookmarkViewController.xib; sourceTree = "<group>"; };
 		4396CC982A1F477000FB8495 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		43E8B4E02A1CBDE900F10D39 /* TrainWindowGuide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrainWindowGuide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43E8B4E32A1CBDE900F10D39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +91,8 @@
 				43E8B4FD2A1DE62700F10D39 /* SearchResultsViewController.xib */,
 				43E8B5002A1DE65A00F10D39 /* ResultsDetailViewController.swift */,
 				43E8B5012A1DE65A00F10D39 /* ResultsDetailViewController.xib */,
+				436F42D42A21E101008EC1DD /* BookmarkViewController.swift */,
+				436F42D52A21E101008EC1DD /* BookmarkViewController.xib */,
 			);
 			path = TrainWindowGuide;
 			sourceTree = "<group>";
@@ -151,6 +157,7 @@
 			files = (
 				43E8B5032A1DE65A00F10D39 /* ResultsDetailViewController.xib in Resources */,
 				43E8B4F02A1CBDEB00F10D39 /* LaunchScreen.storyboard in Resources */,
+				436F42D72A21E101008EC1DD /* BookmarkViewController.xib in Resources */,
 				43E8B4ED2A1CBDEB00F10D39 /* Assets.xcassets in Resources */,
 				43E8B4EB2A1CBDE900F10D39 /* Main.storyboard in Resources */,
 				43E8B4FF2A1DE62700F10D39 /* SearchResultsViewController.xib in Resources */,
@@ -168,6 +175,7 @@
 				43E8B4FE2A1DE62700F10D39 /* SearchResultsViewController.swift in Sources */,
 				43E8B4E42A1CBDE900F10D39 /* AppDelegate.swift in Sources */,
 				43E8B4E62A1CBDE900F10D39 /* SceneDelegate.swift in Sources */,
+				436F42D62A21E101008EC1DD /* BookmarkViewController.swift in Sources */,
 				43E8B5022A1DE65A00F10D39 /* ResultsDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
