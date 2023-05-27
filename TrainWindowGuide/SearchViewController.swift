@@ -68,30 +68,31 @@ class SearchViewController: UIViewController, CLLocationManagerDelegate {
         
         //配列・for文で複数のピンを立てる
         //structの定義
-        struct pinDatas {
+        struct PinData {
             var longitude:Double;
             var latitude:Double;
             var title:Int;
             var subtitle:Int;
         }
         
-        let pinDatas = [[36.3922466621714, 139.057872435089, "利根川", "流域面積が日本一の河川"] as [Any]]
+        let pinDatas: [[Any]] = [[36.3922466621714, 139.057872435089, "利根川", "流域面積が日本一の河川"]]
+
         for pin in pinDatas {
-            let str1:String = pinDatas[pin][0]
-            let _:Double = Double(str1)!
-            let str2:String = pinDatas[pin][1]
-            let _:Double = Double(str2)!
-            let coordinate = CLLocationCoordinate2DMake(Double(str1)!, Double(str2)!)
+            let longitude = pin[0] as! Double
+            let latitude = pin[1] as! Double
+            let coordinate = CLLocationCoordinate2DMake(longitude, latitude)
+
             // ピンを生成
-            let pin = MKPointAnnotation()
+            let pinAnnotation = MKPointAnnotation()
             // ピンのタイトル・サブタイトルをセット
-            pin.title = pinDatas[pin][2]
-            pin.subtitle = pinDatas[pin][3]
+            pinAnnotation.title = pin[2] as? String
+            pinAnnotation.subtitle = pin[3] as? String
             // ピンに一番上で作った位置情報をセット
-            pin.coordinate = coordinate
+            pinAnnotation.coordinate = coordinate
             // mapにピンを表示する
-            mapView.addAnnotation(pin)
+            mapView.addAnnotation(pinAnnotation)
         }
+
     }
     
 }
