@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--item1-->
+        <!--Search View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="SearchViewController" customModule="TrainWindowGuide" customModuleProvider="target" sceneMemberID="viewController">
@@ -63,7 +63,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="item1" id="3YG-WI-o7o"/>
+                    <tabBarItem key="tabBarItem" title="" image="map" catalog="system" id="3YG-WI-o7o"/>
                     <connections>
                         <outlet property="mapView" destination="nsc-ZK-sc6" id="nQN-gF-zZG"/>
                     </connections>
@@ -72,7 +72,7 @@
             </objects>
             <point key="canvasLocation" x="973.28244274809151" y="-2.1126760563380285"/>
         </scene>
-        <!--Item2-->
+        <!--Bookmark View Controller-->
         <scene sceneID="qst-OE-1E1">
             <objects>
                 <viewController id="twy-FC-gxo" customClass="BookmarkViewController" customModule="TrainWindowGuide" customModuleProvider="target" sceneMemberID="viewController">
@@ -82,7 +82,7 @@
                         <viewLayoutGuide key="safeArea" id="b0z-CA-t8m"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item2" id="TEb-oK-3qo"/>
+                    <tabBarItem key="tabBarItem" title="" image="heart" catalog="system" id="TEb-oK-3qo"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QxQ-Mw-djR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -110,7 +110,7 @@
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="clickZoomout:" destination="eAH-74-Bwe" eventType="touchDown" id="0g0-vg-U8x"/>
+                                    <action selector="clickZoomout:" destination="eAH-74-Bwe" eventType="touchDown" id="ajd-S2-E96"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTR-iH-nwK">
@@ -122,7 +122,7 @@
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="clickZoomin:" destination="eAH-74-Bwe" eventType="touchDown" id="knU-HJ-PtG"/>
+                                    <action selector="clickZoomin:" destination="eAH-74-Bwe" eventType="touchDown" id="FOO-VX-GLU"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -157,7 +157,9 @@
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6eE-HN-ERH">
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.1019607843" green="0.71372549019999998" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="0.1019607843" green="0.71372549019999998" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="vjR-TT-fKr"/>
@@ -169,6 +171,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="map" catalog="system" width="128" height="112"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

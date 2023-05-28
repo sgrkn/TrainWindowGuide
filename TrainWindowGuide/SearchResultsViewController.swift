@@ -12,9 +12,10 @@ import MapKit
 class SearchResultViewController: UIViewController, CLLocationManagerDelegate {
     var myLock = NSLock()
     let goldenRatio = 1.618
-    @IBOutlet var mapView: MKMapView!
+    @IBOutlet weak var mapView: MKMapView!
     var locationManager: CLLocationManager!
     
+      
     @IBAction func clickZoomin(_ sender: Any) {
         print("[DBG]clickZoomin")
         myLock.lock()
@@ -26,7 +27,6 @@ class SearchResultViewController: UIViewController, CLLocationManagerDelegate {
             print("[DBG]latitudeDelta-2 : " + mapView.region.span.latitudeDelta.description)
         }
         myLock.unlock()
-        
     }
     
     @IBAction func clickZoomout(_ sender: Any) {
@@ -36,13 +36,13 @@ class SearchResultViewController: UIViewController, CLLocationManagerDelegate {
             print("[DBG]latitudeDelta-1 : " + mapView.region.span.latitudeDelta.description)
             var regionSpan:MKCoordinateSpan = MKCoordinateSpan()
             regionSpan.latitudeDelta = mapView.region.span.latitudeDelta * goldenRatio
-         // regionSpan.latitudeDelta = mapView.region.span.longitudeDelta * GoldenRatio
+            // regionSpan.latitudeDelta = mapView.region.span.longitudeDelta * GoldenRatio
             mapView.region.span = regionSpan
             print("[DBG]latitudeDelta-2 : " + mapView.region.span.latitudeDelta.description)
         }
         myLock.unlock()
     }
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
