@@ -75,7 +75,7 @@ class SearchViewController: UIViewController, CLLocationManagerDelegate {
             var subtitle:Int;
         }
         
-        let pinDatas: [[Any]] = [[36.3922466621714, 139.057872435089, "利根川", "流域面積が日本一の河川"]]
+        let pinDatas: [[Any]] = [[36.3922466621714, 139.057872435089, "利根川", "流域面積が日本一の河川"],[36.3911018795263, 139.060328833722, "群馬県庁", "33階建て。高さ153m。"], [36.5629115, 139.1969948, "赤城山", "群馬県のほぼ中央に位置する上州の名山。晴天時によく見える。"], [36.050584,  138.085549, "諏訪湖", "日本で23番目に広い湖。"]]
 
         for pin in pinDatas {
             let longitude = pin[0] as! Double
@@ -95,7 +95,6 @@ class SearchViewController: UIViewController, CLLocationManagerDelegate {
 
     }
     
-}
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations:[CLLocation]) {
         let longitude = (locations.last?.coordinate.longitude.description)!
@@ -104,4 +103,4 @@ class SearchViewController: UIViewController, CLLocationManagerDelegate {
         // print("[DBG]latitude : " + latitude)
 
     }
-
+}
