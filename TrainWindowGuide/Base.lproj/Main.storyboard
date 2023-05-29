@@ -109,9 +109,6 @@
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="40"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
-                                <connections>
-                                    <action selector="clickZoomout:" destination="eAH-74-Bwe" eventType="touchDown" id="ajd-S2-E96"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTR-iH-nwK">
                                 <rect key="frame" x="28" y="645" width="51" height="62"/>
@@ -121,9 +118,6 @@
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="40"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
-                                <connections>
-                                    <action selector="clickZoomin:" destination="eAH-74-Bwe" eventType="touchDown" id="FOO-VX-GLU"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8kj-QM-84Q"/>
@@ -152,10 +146,10 @@
         <!--Tab Bar Controller-->
         <scene sceneID="CLq-Ek-cxD">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EVK-lW-pht" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="DkU-73-znj" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6eE-HN-ERH">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="0.1019607843" green="0.71372549019999998" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -166,6 +160,7 @@
                         <segue destination="twy-FC-gxo" kind="relationship" relationship="viewControllers" id="icb-mt-5jS"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EVK-lW-pht" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="46.564885496183201" y="-2.1126760563380285"/>
         </scene>
