@@ -9,7 +9,7 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class SearchResultViewController: UIViewController, CLLocationManagerDelegate {
+class SearchResultsViewController: UIViewController, CLLocationManagerDelegate {
     var myLock = NSLock()
     let goldenRatio = 1.618
     @IBOutlet weak var mapView: MKMapView!
