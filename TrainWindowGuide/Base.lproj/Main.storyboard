@@ -56,7 +56,7 @@
                                     <color key="baseBackgroundColor" red="0.10196078431372549" green="0.71372549019607845" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="eAH-74-Bwe" kind="presentation" modalPresentationStyle="fullScreen" id="8Z9-W6-lOM"/>
+                                    <segue destination="eAH-74-Bwe" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="8Z9-W6-lOM"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -109,6 +109,9 @@
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="40"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="clickZoomout:" destination="eAH-74-Bwe" eventType="touchDown" id="OSq-8w-Bf3"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTR-iH-nwK">
                                 <rect key="frame" x="28" y="645" width="51" height="62"/>
@@ -118,11 +121,17 @@
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="40"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="clickZoomin:" destination="eAH-74-Bwe" eventType="touchDown" id="p41-YW-x9P"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8kj-QM-84Q"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="1VR-C3-Lhc" id="lNQ-rd-lNV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aN0-95-jSU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
