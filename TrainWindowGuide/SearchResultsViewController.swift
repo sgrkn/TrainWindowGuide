@@ -114,11 +114,25 @@ class SearchResultsViewController: UIViewController, CLLocationManagerDelegate, 
     
     // ピンがタップされた時の処理
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        
+        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+                let next = segue.destination
+                if let sheet = next.sheetPresentationController {
+                    sheet.detents = [.medium(), .large()]
+
+                    //モーダル出現後も親ビュー操作可能にする
+                    sheet.largestUndimmedDetentIdentifier = .medium
+                    // 角丸の半径を変更する
+                    sheet.preferredCornerRadius = 40.0
+                    //　グラバーを表示する
+                    sheet.prefersGrabberVisible = true
+                }
+        }
             // タップされたピンの位置情報
-            print(view.annotation?.coordinate)
+            // print(view.annotation?.coordinate)
             // タップされたピンのタイトルとサブタイトル
-            print(view.annotation?.title)
-            print(view.annotation?.subtitle)
+            // print(view.annotation?.title)
+            // print(view.annotation?.subtitle)
         }
     
 
