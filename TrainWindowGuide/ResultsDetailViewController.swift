@@ -8,6 +8,11 @@
 import UIKit
 
 class ResultsDetailViewController: UIViewController {
+    
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var railLabel: UILabel!
+    @IBOutlet var stationnLabel: UILabel!
+    @IBOutlet var explanationLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()

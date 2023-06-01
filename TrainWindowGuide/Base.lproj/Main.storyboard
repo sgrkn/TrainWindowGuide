@@ -131,6 +131,7 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="1VR-C3-Lhc" id="lNQ-rd-lNV"/>
+                        <segue destination="GHS-Y6-wwj" kind="presentation" identifier="toDetail" id="Hlu-YO-2g3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aN0-95-jSU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -142,8 +143,17 @@
             <objects>
                 <viewController id="GHS-Y6-wwj" customClass="ResultsDetailViewController" customModule="TrainWindowGuide" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="j4e-Rl-dvr">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ds-ce-oFn">
+                                <rect key="frame" x="114" y="160" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="9VG-mA-Cez"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>

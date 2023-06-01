@@ -112,29 +112,22 @@ class SearchResultsViewController: UIViewController, CLLocationManagerDelegate, 
 
     }
     
-    // ピンがタップされた時の処理
+    // ピンがタップされたときの処理
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        
-        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-                let next = segue.destination
-                if let sheet = next.sheetPresentationController {
-                    sheet.detents = [.medium(), .large()]
+        performSegue(withIdentifier: "toDetail", sender: nil)
+    }
 
-                    //モーダル出現後も親ビュー操作可能にする
-                    sheet.largestUndimmedDetentIdentifier = .medium
-                    // 角丸の半径を変更する
-                    sheet.preferredCornerRadius = 40.0
-                    //　グラバーを表示する
-                    sheet.prefersGrabberVisible = true
-                }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetail" {
+            let next = segue.destination
+            if let sheet = next.sheetPresentationController {
+                sheet.detents = [.medium(), .large()]
+                sheet.largestUndimmedDetentIdentifier = .medium
+                sheet.preferredCornerRadius = 40.0
+                sheet.prefersGrabberVisible = true
+            }
         }
-            // タップされたピンの位置情報
-            // print(view.annotation?.coordinate)
-            // タップされたピンのタイトルとサブタイトル
-            // print(view.annotation?.title)
-            // print(view.annotation?.subtitle)
-        }
-    
+    }
 
     
     func locationManager2(_ manager: CLLocationManager, didUpdateLocations locations:[CLLocation]) {
