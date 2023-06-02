@@ -126,6 +126,15 @@ class SearchResultsViewController: UIViewController, CLLocationManagerDelegate, 
                 sheet.preferredCornerRadius = 40.0
                 sheet.prefersGrabberVisible = true
             }
+            if let viewController = segue.destination as? ResultsDetailViewController {
+                // ここでモーダルに値をセットする
+                if let selectedPin = sender as? MKAnnotation {
+                    viewController.pinTitle = selectedPin.title ?? ""
+                    viewController.pinRails = selectedPin.rails ?? ""
+                    viewController.pinStation = selectedPin.station ?? ""
+                    viewController.pinExplanation = selectedPin.explanation ?? ""
+                }
+            }
         }
     }
 

@@ -10,14 +10,23 @@ import UIKit
 class ResultsDetailViewController: UIViewController {
     
     @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var railLabel: UILabel!
-    @IBOutlet var stationnLabel: UILabel!
+    @IBOutlet var railsLabel: UILabel!
+    @IBOutlet var stationLabel: UILabel!
     @IBOutlet var explanationLabel: UILabel!
+    
+    var pinTitle: String = ""
+    var pinRails: String = ""
+    var pinStation: String = ""
+    var pinExplanation: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        titleLabel.text = pinTitle
+        railsLabel.text = pinRails
+        stationLabel.text = pinStation
+        explanationLabel.text = pinExplanation
     }
 
 
