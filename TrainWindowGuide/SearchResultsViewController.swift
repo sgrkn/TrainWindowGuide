@@ -75,35 +75,35 @@ class SearchResultsViewController: UIViewController, CLLocationManagerDelegate, 
         
         //配列・for文で複数のピンを立てる
         //structの定義
-        struct PinData {
-            var longitude:Double;
-            var latitude:Double;
-            var title:String;
-            var subtitle:String;
-        }
-        
-        let pinDatas: [[Any]] = [[36.3922466621714, 139.057872435089, "利根川", "流域面積が日本一の河川"],
-                                 [36.3911018795263, 139.060328833722, "群馬県庁", "33階建て。高さ153m。"],
-                                 [36.5629115, 139.1969948, "赤城山", "群馬県のほぼ中央に位置する上州の名山。晴天時によく見える。"],
-                                 [36.050584,  138.085549, "諏訪湖", "日本で23番目に広い湖。"],
-                                 [36.32883716, 138.9189998, "東邦亜鉛安中精錬所", "夜景が綺麗。"],
-                                 [36.33427411, 138.924529, "ベイシア安中店", "群馬発祥のスーパー"],
-                                 [36.2992921, 138.7486621, "妙義山", "上毛三山のひとつ。荒々しい岩肌が特徴。" ],
-                                 [35.97163084, 138.3701287, "八ヶ岳", "山。"],
-                                 [35.91030682, 138.2504178, "中央線旧立場川橋梁跡", "中央本線の橋が架橋した際に廃止された橋。"],
-                                 [34.982594, 136.658337, "四日市コンビナート", "日本で初めて形成された石油化学コンビナート"],
-                                 [35.36149952247431, 138.72736334024125, "富士山", "日本一の山"]]
+//        struct PinData {
+//            var longitude:Double;
+//            var latitude:Double;
+//            var title:String;
+//            var subtitle:String;
+//        }
+//
+//        let pinDatas: [[Any]] = [[36.3922466621714, 139.057872435089, "利根川", "流域面積が日本一の河川"],
+//                                 [36.3911018795263, 139.060328833722, "群馬県庁", "33階建て。高さ153m。"],
+//                                 [36.5629115, 139.1969948, "赤城山", "群馬県のほぼ中央に位置する上州の名山。晴天時によく見える。"],
+//                                 [36.050584,  138.085549, "諏訪湖", "日本で23番目に広い湖。"],
+//                                 [36.32883716, 138.9189998, "東邦亜鉛安中精錬所", "夜景が綺麗。"],
+//                                 [36.33427411, 138.924529, "ベイシア安中店", "群馬発祥のスーパー"],
+//                                 [36.2992921, 138.7486621, "妙義山", "上毛三山のひとつ。荒々しい岩肌が特徴。" ],
+//                                 [35.97163084, 138.3701287, "八ヶ岳", "山。"],
+//                                 [35.91030682, 138.2504178, "中央線旧立場川橋梁跡", "中央本線の橋が架橋した際に廃止された橋。"],
+//                                 [34.982594, 136.658337, "四日市コンビナート", "日本で初めて形成された石油化学コンビナート"],
+//                                 [35.36149952247431, 138.72736334024125, "富士山", "日本一の山"]]
 
-        for pin in pinDatas {
-            let longitude = pin[0] as! Double
-            let latitude = pin[1] as! Double
+        for pin in PinData.DEFAULT_DATAS {
+            let longitude = pin.longitude
+            let latitude = pin.latitude
             let coordinate = CLLocationCoordinate2DMake(longitude, latitude)
 
             // ピンを生成
             let pinAnnotation = MKPointAnnotation()
             // ピンのタイトル・サブタイトルをセット
-            pinAnnotation.title = pin[2] as? String
-            pinAnnotation.subtitle = pin[3] as? String
+            pinAnnotation.title = pin.title
+            pinAnnotation.subtitle = pin.subtitle
             // ピンに一番上で作った位置情報をセット
             pinAnnotation.coordinate = coordinate
             // mapにピンを表示する
@@ -114,7 +114,7 @@ class SearchResultsViewController: UIViewController, CLLocationManagerDelegate, 
     
     // ピンがタップされたときの処理
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        performSegue(withIdentifier: "toDetail", sender: nil)
+        performSegue(withIdentifier: "toDetail", sender: view.annotation)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -129,16 +129,17 @@ class SearchResultsViewController: UIViewController, CLLocationManagerDelegate, 
             if let viewController = segue.destination as? ResultsDetailViewController {
                 // ここでモーダルに値をセットする
                 if let selectedPin = sender as? MKAnnotation {
-                    viewController.pinTitle = selectedPin.title as? String ?? ""
-                    viewController.pinRails = selectedPin.rails as? String?? ""
-                    viewController.pinStation = selectedPin.station as? String? ""
-                    viewController.pinExplanation = selectedPin.explanation as? String?? ""
                     let title = selectedPin.title as? String ?? ""
-                    guard let pin = pinDatas.first(where: { $0.title == title }) else { return }
-                    viewController.pinRails = pin.rails
+                    let pinData = PinData.DEFAULT_DATAS.first(where: { $0.title == title })
+//                    viewController.pinTitle = selectedPin.title as? String ?? ""
+//                    viewController.pinRails = selectedPin.rails as? String?? ""
+//                    viewController.pinStation = selectedPin.station as? String? ""
+//                    viewController.pinExplanation = selectedPin.explanation as? String?? ""
+                    viewController.pinData = pinData
+//                    let title = selectedPin.title as? String ?? ""
+//                    guard let pin = pinDatas.first(where: { $0.title == title }) else { return }
+//                    viewController.pinRails = pin.rails
                 }
-                
-                
             }
         }
     }
