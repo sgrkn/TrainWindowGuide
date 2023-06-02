@@ -78,8 +78,8 @@ class SearchResultsViewController: UIViewController, CLLocationManagerDelegate, 
         struct PinData {
             var longitude:Double;
             var latitude:Double;
-            var title:Int;
-            var subtitle:Int;
+            var title:String;
+            var subtitle:String;
         }
         
         let pinDatas: [[Any]] = [[36.3922466621714, 139.057872435089, "利根川", "流域面積が日本一の河川"],
@@ -129,10 +129,10 @@ class SearchResultsViewController: UIViewController, CLLocationManagerDelegate, 
             if let viewController = segue.destination as? ResultsDetailViewController {
                 // ここでモーダルに値をセットする
                 if let selectedPin = sender as? MKAnnotation {
-                    viewController.pinTitle = selectedPin.title ?? ""
-                    viewController.pinRails = selectedPin.rails ?? ""
-                    viewController.pinStation = selectedPin.station ?? ""
-                    viewController.pinExplanation = selectedPin.explanation ?? ""
+                    viewController.pinTitle = selectedPin.title as? String ?? ""
+                    viewController.pinRails = selectedPin.rails as? String?? ""
+                    viewController.pinStation = selectedPin.station as? String? ""
+                    viewController.pinExplanation = selectedPin.explanation as? String?? ""
                 }
             }
         }
