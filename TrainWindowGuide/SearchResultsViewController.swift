@@ -133,7 +133,12 @@ class SearchResultsViewController: UIViewController, CLLocationManagerDelegate, 
                     viewController.pinRails = selectedPin.rails as? String?? ""
                     viewController.pinStation = selectedPin.station as? String? ""
                     viewController.pinExplanation = selectedPin.explanation as? String?? ""
+                    let title = selectedPin.title as? String ?? ""
+                    guard let pin = pinDatas.first(where: { $0.title == title }) else { return }
+                    viewController.pinRails = pin.rails
                 }
+                
+                
             }
         }
     }
