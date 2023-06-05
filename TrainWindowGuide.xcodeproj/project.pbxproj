@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4337E8892A29C82E0027B826 /* pinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4337E8882A29C82E0027B826 /* pinData.swift */; };
+		4337E8892A29C82E0027B826 /* PinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4337E8882A29C82E0027B826 /* PinData.swift */; };
 		436F42D62A21E101008EC1DD /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436F42D42A21E101008EC1DD /* BookmarkViewController.swift */; };
 		436F42D72A21E101008EC1DD /* BookmarkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 436F42D52A21E101008EC1DD /* BookmarkViewController.xib */; };
 		4396CC992A1F477000FB8495 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4396CC982A1F477000FB8495 /* MapKit.framework */; };
@@ -24,7 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4337E8882A29C82E0027B826 /* pinData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pinData.swift; sourceTree = "<group>"; };
+		4337E8882A29C82E0027B826 /* PinData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinData.swift; sourceTree = "<group>"; };
 		436F42D42A21E101008EC1DD /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
 		436F42D52A21E101008EC1DD /* BookmarkViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookmarkViewController.xib; sourceTree = "<group>"; };
 		4396CC982A1F477000FB8495 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -95,7 +95,7 @@
 				43E8B5012A1DE65A00F10D39 /* ResultsDetailViewController.xib */,
 				436F42D42A21E101008EC1DD /* BookmarkViewController.swift */,
 				436F42D52A21E101008EC1DD /* BookmarkViewController.xib */,
-				4337E8882A29C82E0027B826 /* pinData.swift */,
+				4337E8882A29C82E0027B826 /* PinData.swift */,
 			);
 			path = TrainWindowGuide;
 			sourceTree = "<group>";
@@ -180,7 +180,7 @@
 				43E8B4E62A1CBDE900F10D39 /* SceneDelegate.swift in Sources */,
 				436F42D62A21E101008EC1DD /* BookmarkViewController.swift in Sources */,
 				43E8B5022A1DE65A00F10D39 /* ResultsDetailViewController.swift in Sources */,
-				4337E8892A29C82E0027B826 /* pinData.swift in Sources */,
+				4337E8892A29C82E0027B826 /* PinData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

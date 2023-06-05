@@ -14,19 +14,21 @@ class ResultsDetailViewController: UIViewController {
     @IBOutlet var stationLabel: UILabel!
     @IBOutlet var explanationLabel: UILabel!
     
-    var pinTitle: String = ""
-    var pinRails: String = ""
-    var pinStation: String = ""
-    var pinExplanation: String = ""
+//    var pinTitle: String = ""
+//    var pinRails: String = ""
+//    var pinStation: String = ""
+//    var pinExplanation: String = ""
+    var pinData: PinData!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        titleLabel.text = pinTitle
-        railsLabel.text = pinRails
-        stationLabel.text = pinStation
-        explanationLabel.text = pinExplanation
+        titleLabel.text = pinData.title
+        railsLabel.text = pinData.rail
+//
+//        stationLabel.text = pinStation
+//        explanationLabel.text = pinExplanation
     }
 
 
