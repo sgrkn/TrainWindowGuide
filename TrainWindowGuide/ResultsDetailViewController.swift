@@ -10,14 +10,10 @@ import UIKit
 class ResultsDetailViewController: UIViewController {
     
     @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var railsLabel: UILabel!
+    @IBOutlet var railLabel: UILabel!
     @IBOutlet var stationLabel: UILabel!
     @IBOutlet var explanationLabel: UILabel!
     
-//    var pinTitle: String = ""
-//    var pinRails: String = ""
-//    var pinStation: String = ""
-//    var pinExplanation: String = ""
     var pinData: PinData!
 
     override func viewDidLoad() {
@@ -25,21 +21,9 @@ class ResultsDetailViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         titleLabel.text = pinData.title
-        railsLabel.text = pinData.rail
-//
-//        stationLabel.text = pinStation
-//        explanationLabel.text = pinExplanation
+        railLabel.text = pinData.rail
+        stationLabel.text = pinData.station
+        explanationLabel.text = pinData.explanation
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
