@@ -131,11 +131,11 @@ class SearchResultsViewController: UIViewController, CLLocationManagerDelegate, 
                 if let selectedPin = sender as? MKAnnotation {
                     let title = selectedPin.title as? String ?? ""
                     let pinData = PinData.DEFAULT_DATAS.first(where: { $0.title == title })
+                    viewController.pinData = pinData
 //                    viewController.pinTitle = selectedPin.title as? String ?? ""
 //                    viewController.pinRails = selectedPin.rails as? String?? ""
 //                    viewController.pinStation = selectedPin.station as? String? ""
 //                    viewController.pinExplanation = selectedPin.explanation as? String?? ""
-                    viewController.pinData = pinData
 //                    let title = selectedPin.title as? String ?? ""
 //                    guard let pin = pinDatas.first(where: { $0.title == title }) else { return }
 //                    viewController.pinRails = pin.rails
