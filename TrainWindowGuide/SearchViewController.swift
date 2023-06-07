@@ -9,11 +9,12 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class SearchViewController: UIViewController, CLLocationManagerDelegate {
+class SearchViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     var myLock = NSLock()
     let goldenRatio = 1.618
     @IBOutlet var mapView: MKMapView!
     var locationManager: CLLocationManager!
+    @IBOutlet weak var inputText: UITextField!
     
     @IBAction func clickZoomin(_ sender: Any) {
         print("[DBG]clickZoomin")
@@ -52,7 +53,8 @@ class SearchViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.requestWhenInUseAuthorization()  // 位置情報取得の許可を得る
         
         mapView.showsUserLocation = true
-
+        
+        inputText.delegate = self // TextField のdelegate通知先を設定
     }
     
     
@@ -63,4 +65,39 @@ class SearchViewController: UIViewController, CLLocationManagerDelegate {
         // print("[DBG]latitude : " + latitude)
 
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            textField.resignFirstResponder()
+
+            if let searchKey = textField.text {
+
+            print(searchKey)
+
+            let geocoder = CLGeocoder()
+
+                geocoder.geocodeAddressString(searchKey, completionHandler: { (placemarks, error) in
+
+                    if let unwrapPlacemarks = placemarks {
+                        if let firstPlacemark = unwrapPlacemarks.first {
+                            if let location = firstPlacemark.location {
+                                let targetCoordinate = location.coordinate
+                                print(targetCoordinate)
+
+                                let pin = MKPointAnnotation()
+
+                                pin.coordinate = targetCoordinate
+                                pin.title = searchKey
+                                self.mapView.addAnnotation(pin)
+
+                                self.mapView.region = MKCoordinateRegion(center: targetCoordinate, latitudinalMeters: 500.0, longitudinalMeters: 500.0)
+                            }
+                        }
+                    }
+                })
+        }
+        return true
+    }
+
+
 }
+
