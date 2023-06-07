@@ -132,6 +132,12 @@
                                     <action selector="clickZoomin:" destination="eAH-74-Bwe" eventType="touchDown" id="p41-YW-x9P"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1bm-Cp-lW1">
+                                <rect key="frame" x="46" y="72" width="302" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOO-b0-gdN">
                                 <rect key="frame" x="121" y="114" width="151" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -147,6 +153,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="inputText" destination="1bm-Cp-lW1" id="Cs4-ec-34E"/>
                         <outlet property="mapView" destination="1VR-C3-Lhc" id="lNQ-rd-lNV"/>
                         <segue destination="GHS-Y6-wwj" kind="presentation" identifier="toDetail" id="Hlu-YO-2g3"/>
                     </connections>
