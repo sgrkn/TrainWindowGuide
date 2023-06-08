@@ -13,6 +13,7 @@ class ResultsDetailViewController: UIViewController {
     @IBOutlet var railLabel: UILabel!
     @IBOutlet var stationLabel: UILabel!
     @IBOutlet var explanationLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     
     var pinData: PinData!
 
@@ -24,6 +25,7 @@ class ResultsDetailViewController: UIViewController {
         railLabel.text = pinData.rail
         stationLabel.text = pinData.station
         explanationLabel.text = pinData.explanation
+        imageView.image = UIImage(named:pinData!.imagePath)
     }
 
 }

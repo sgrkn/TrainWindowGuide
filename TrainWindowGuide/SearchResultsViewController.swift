@@ -15,7 +15,6 @@ class SearchResultsViewController: UIViewController, CLLocationManagerDelegate, 
     @IBOutlet weak var mapView: MKMapView!
     var locationManager: CLLocationManager!
     @IBOutlet weak var inputText: UITextField!
-    
       
     @IBAction func clickZoomin(_ sender: Any) {
         print("[DBG]clickZoomin")

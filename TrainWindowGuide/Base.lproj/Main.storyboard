@@ -157,6 +157,7 @@
                     </view>
                     <connections>
                         <outlet property="explanationLabel" destination="Fef-wX-YlQ" id="na0-Or-WDw"/>
+                        <outlet property="imageView" destination="fK8-Q9-sKW" id="mrd-ad-Uop"/>
                         <outlet property="railLabel" destination="mjb-Tm-VWM" id="787-op-KBj"/>
                         <outlet property="stationLabel" destination="rcs-8w-43R" id="JGZ-mk-Zkq"/>
                         <outlet property="titleLabel" destination="8Ds-ce-oFn" id="ThA-Yw-gFC"/>
