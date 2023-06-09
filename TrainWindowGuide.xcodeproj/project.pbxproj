@@ -327,6 +327,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3A4F76M7GV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TrainWindowGuide/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "アプリの使用中のみ位置情報の取得を許可する";
@@ -357,6 +358,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3A4F76M7GV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TrainWindowGuide/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "アプリの使用中のみ位置情報の取得を許可する";
