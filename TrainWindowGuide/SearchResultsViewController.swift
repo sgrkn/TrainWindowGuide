@@ -197,37 +197,65 @@ class SearchResultsViewController: UIViewController, CLLocationManagerDelegate, 
     //    }
     //
     
-    // 検索機能・フィルター
+//    // 検索機能・フィルター
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        textField.resignFirstResponder()
+//        if let searchKey = textField.text {
+//            let filteredPins = PinData.DEFAULT_DATAS.filter { pin in
+//                if searchKey == pin.title, pin.title.lowercased().contains(searchKey.lowercased()) {
+//                    return true
+//                }
+//                return false
+//            }
+//
+//                for pin in filteredPins {
+//                    let coordinate = CLLocationCoordinate2D(latitude: pin.latitude, longitude: pin.longitude)
+//                    let pinAnnotation = MKPointAnnotation()
+//                    pinAnnotation.coordinate = coordinate
+//                    pinAnnotation.title = pin.title
+//                    mapView.addAnnotation(pinAnnotation)
+//                }
+//
+//                if let firstPin = filteredPins.first {
+//                    let coordinate = CLLocationCoordinate2D(latitude: firstPin.latitude, longitude: firstPin.longitude)
+//                    let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 500.0, longitudinalMeters: 500.0)
+//                    mapView.setRegion(region, animated: true)
+//                }
+//            }
+//
+//
+//            return true
+//        }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-
         if let searchKey = textField.text {
-            if let searchKey = textField.text {
-                let filteredPins = PinData.DEFAULT_DATAS.filter { pin in
-                    if var title: String = pin.title, title.lowercased().contains(searchKey.lowercased()) {
-                        return true
-                    }
-                    return false
+            let filteredPins = PinData.DEFAULT_DATAS.filter { pin in
+                if searchKey == pin.title, pin.title.lowercased().contains(searchKey.lowercased()) {
+                    return true
                 }
-
-                for pin in filteredPins {
-                    let coordinate = CLLocationCoordinate2D(latitude: pin.latitude, longitude: pin.longitude)
-                    let pinAnnotation = MKPointAnnotation()
-                    pinAnnotation.coordinate = coordinate
-                    pinAnnotation.title = pin.title
-                    mapView.addAnnotation(pinAnnotation)
-                }
-
-                if let firstPin = filteredPins.first {
-                    let coordinate = CLLocationCoordinate2D(latitude: firstPin.latitude, longitude: firstPin.longitude)
-                    let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 500.0, longitudinalMeters: 500.0)
-                    mapView.setRegion(region, animated: true)
-                }
+                return false
             }
-
-
-            return true
+            
+            // 既存のアノテーションを削除
+            mapView.removeAnnotations(mapView.annotations)
+            
+            for pin in filteredPins {
+                let coordinate = CLLocationCoordinate2D(latitude: pin.latitude, longitude: pin.longitude)
+                let pinAnnotation = MKPointAnnotation()
+                pinAnnotation.coordinate = coordinate
+                pinAnnotation.title = pin.title
+                mapView.addAnnotation(pinAnnotation)
+            }
+            
+            if let firstPin = filteredPins.first {
+                let coordinate = CLLocationCoordinate2D(latitude: firstPin.latitude, longitude: firstPin.longitude)
+                let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 500.0, longitudinalMeters: 500.0)
+                mapView.setRegion(region, animated: true)
+            }
         }
+        
+        return true
+    }
+
 
     }
-}
