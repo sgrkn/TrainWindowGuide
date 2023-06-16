@@ -10,6 +10,7 @@
 		436F42D62A21E101008EC1DD /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436F42D42A21E101008EC1DD /* BookmarkViewController.swift */; };
 		4371F64B2A3C3B51003FDF41 /* SearchResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4371F6492A3C3B51003FDF41 /* SearchResultsTableViewCell.swift */; };
 		4371F64C2A3C3B51003FDF41 /* SearchResultsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4371F64A2A3C3B51003FDF41 /* SearchResultsTableViewCell.xib */; };
+		4371F64E2A3C4317003FDF41 /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4371F64D2A3C4317003FDF41 /* SearchResultsTableViewController.swift */; };
 		438CB6F82A2F360300112666 /* PinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438CB6F72A2F360300112666 /* PinData.swift */; };
 		4396CC992A1F477000FB8495 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4396CC982A1F477000FB8495 /* MapKit.framework */; };
 		43E8B4E42A1CBDE900F10D39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E8B4E32A1CBDE900F10D39 /* AppDelegate.swift */; };
@@ -26,6 +27,7 @@
 		436F42D42A21E101008EC1DD /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
 		4371F6492A3C3B51003FDF41 /* SearchResultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewCell.swift; sourceTree = "<group>"; };
 		4371F64A2A3C3B51003FDF41 /* SearchResultsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultsTableViewCell.xib; sourceTree = "<group>"; };
+		4371F64D2A3C4317003FDF41 /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		438CB6F72A2F360300112666 /* PinData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinData.swift; sourceTree = "<group>"; };
 		4396CC982A1F477000FB8495 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		43E8B4E02A1CBDE900F10D39 /* TrainWindowGuide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrainWindowGuide.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +103,7 @@
 				436F42D42A21E101008EC1DD /* BookmarkViewController.swift */,
 				4371F6492A3C3B51003FDF41 /* SearchResultsTableViewCell.swift */,
 				4371F64A2A3C3B51003FDF41 /* SearchResultsTableViewCell.xib */,
+				4371F64D2A3C4317003FDF41 /* SearchResultsTableViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 				43E8B4FE2A1DE62700F10D39 /* SearchResultsViewController.swift in Sources */,
 				43E8B4E42A1CBDE900F10D39 /* AppDelegate.swift in Sources */,
 				4371F64B2A3C3B51003FDF41 /* SearchResultsTableViewCell.swift in Sources */,
+				4371F64E2A3C4317003FDF41 /* SearchResultsTableViewController.swift in Sources */,
 				43E8B4E62A1CBDE900F10D39 /* SceneDelegate.swift in Sources */,
 				436F42D62A21E101008EC1DD /* BookmarkViewController.swift in Sources */,
 				43E8B5022A1DE65A00F10D39 /* ResultsDetailViewController.swift in Sources */,
