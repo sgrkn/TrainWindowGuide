@@ -9,7 +9,7 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class SearchResultsViewController: UIViewController, UITableViewDataSource {
+class SearchResultsViewController: UIViewController {
     var myLock = NSLock()
     let goldenRatio = 1.618
     @IBOutlet weak var mapView: MKMapView!
@@ -88,19 +88,19 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource {
         // 表示している範囲を取得
         let center = mapView.centerCoordinate
         let span = mapView.region.span
-
+        
         // 下の式のようにしてpinDatasからfilterをかけ、条件を満たすpinDataの配列を渡す
         // center.latitude - span.latitudeDelta < pinData.latitude < center.latitude + span.latitudeDelta
         let filteredPinData = pinDatas.filter { pinData in
-        let latDiff = abs(center.latitude - pinData.latitude)
-        let lonDiff = abs(center.longitude - pinData.longitude)
-        return latDiff < span.latitudeDelta && lonDiff < span.longitudeDelta
+            let latDiff = abs(center.latitude - pinData.latitude)
+            let lonDiff = abs(center.longitude - pinData.longitude)
+            return latDiff < span.latitudeDelta && lonDiff < span.longitudeDelta
         }
-
+        
         // segueを実行し、filteredPinDataをsenderとして渡す
         performSegue(withIdentifier: "toDetailTable", sender: filteredPinData)
     }
-
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetail" {
@@ -121,67 +121,68 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource {
             }
         }
         
-        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // if segue.identifier == "toDetailTable"
         if segue.identifier == "toDetailTable" {
-            if let detailViewController = segue.destination as? SearchResultsTableViewCell {
-                if let pinData = sender as? [PinData] {
-                    detailViewController.pinDatas = pinData
+            if let tableViewController = segue.destination as? SearchResultsTableViewController {
+                if let pinDatas = sender as? [PinData] {
+                    tableViewController.pinDatas = pinDatas
                     // sheetを起動して、sheetのpinDatasにsendarのpinDatasを代入する
                     // DetailTableViewController側では、pinDatas: [PinData]に基づきTableViewを表示する
                     // TableViewのせるが選択されたタイミングで、ResultsDetailViewControllerへ画面遷移を行う
                     // カスタムTableViewの参考に https://ios-docs.dev/customcell/
-    }
-}
-
-extension SearchResultsViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let currentLocation = locations.last else { return }
-        
-        if !initialLocationSet {
-            let coordinate = currentLocation.coordinate
-            let currentRegion = MKCoordinateRegion(center: coordinate, span: mapView.region.span)
-            mapView.setRegion(currentRegion, animated: true)
-            initialLocationSet = true // 初期位置が設定されたことをマークする
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        // 位置情報の取得が許可されていない場合の初期位置を指定する
-        let initialCoordinate = CLLocationCoordinate2D(latitude: 35.6895, longitude: 139.6917)
-        // 例として東京の座標を使用
-        let initialRegion = MKCoordinateRegion(center: initialCoordinate, latitudinalMeters: 500.0, longitudinalMeters: 500.0)
-        mapView.setRegion(initialRegion, animated: true)
-        
-        initialLocationSet = true
-    }
-    
-}
-
-extension SearchResultsViewController: MKMapViewDelegate {
-    // ピンがタップされたときの処理
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        performSegue(withIdentifier: "toDetail", sender: view.annotation)
-    }
-}
-
-extension SearchResultsViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        if let searchKey = textField.text {
-            let filteredPins = PinData.DEFAULT_DATAS.filter { pin in
-                if pin.title.lowercased().contains(searchKey.lowercased()) {
-                    return true
                 }
-                return false
-            }
-            
-            if let firstPin = filteredPins.first {
-                let coordinate = CLLocationCoordinate2D(latitude: firstPin.latitude, longitude: firstPin.longitude)
-                let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 500.0, longitudinalMeters: 500.0)
-                mapView.setRegion(region, animated: true)
             }
         }
-        return true
+    }
+    
+    extension SearchResultsViewController: CLLocationManagerDelegate {
+        func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+            guard let currentLocation = locations.last else { return }
+            
+            if !initialLocationSet {
+                let coordinate = currentLocation.coordinate
+                let currentRegion = MKCoordinateRegion(center: coordinate, span: mapView.region.span)
+                mapView.setRegion(currentRegion, animated: true)
+                initialLocationSet = true // 初期位置が設定されたことをマークする
+            }
+        }
+        
+        func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+            // 位置情報の取得が許可されていない場合の初期位置を指定する
+            let initialCoordinate = CLLocationCoordinate2D(latitude: 35.6895, longitude: 139.6917)
+            // 例として東京の座標を使用
+            let initialRegion = MKCoordinateRegion(center: initialCoordinate, latitudinalMeters: 500.0, longitudinalMeters: 500.0)
+            mapView.setRegion(initialRegion, animated: true)
+            
+            initialLocationSet = true
+        }
+        
+    }
+    
+    extension SearchResultsViewController: MKMapViewDelegate {
+        // ピンがタップされたときの処理
+        func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+            performSegue(withIdentifier: "toDetail", sender: view.annotation)
+        }
+    }
+    
+    extension SearchResultsViewController: UITextFieldDelegate {
+        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            textField.resignFirstResponder()
+            if let searchKey = textField.text {
+                let filteredPins = PinData.DEFAULT_DATAS.filter { pin in
+                    if pin.title.lowercased().contains(searchKey.lowercased()) {
+                        return true
+                    }
+                    return false
+                }
+                
+                if let firstPin = filteredPins.first {
+                    let coordinate = CLLocationCoordinate2D(latitude: firstPin.latitude, longitude: firstPin.longitude)
+                    let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 500.0, longitudinalMeters: 500.0)
+                    mapView.setRegion(region, animated: true)
+                }
+            }
+            return true
+        }
     }
 }
