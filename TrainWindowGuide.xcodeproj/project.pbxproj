@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		436F42D62A21E101008EC1DD /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436F42D42A21E101008EC1DD /* BookmarkViewController.swift */; };
+		4371F64B2A3C3B51003FDF41 /* SearchResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4371F6492A3C3B51003FDF41 /* SearchResultsTableViewCell.swift */; };
+		4371F64C2A3C3B51003FDF41 /* SearchResultsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4371F64A2A3C3B51003FDF41 /* SearchResultsTableViewCell.xib */; };
 		438CB6F82A2F360300112666 /* PinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438CB6F72A2F360300112666 /* PinData.swift */; };
 		4396CC992A1F477000FB8495 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4396CC982A1F477000FB8495 /* MapKit.framework */; };
 		43E8B4E42A1CBDE900F10D39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E8B4E32A1CBDE900F10D39 /* AppDelegate.swift */; };
@@ -22,6 +24,8 @@
 
 /* Begin PBXFileReference section */
 		436F42D42A21E101008EC1DD /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
+		4371F6492A3C3B51003FDF41 /* SearchResultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewCell.swift; sourceTree = "<group>"; };
+		4371F64A2A3C3B51003FDF41 /* SearchResultsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultsTableViewCell.xib; sourceTree = "<group>"; };
 		438CB6F72A2F360300112666 /* PinData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinData.swift; sourceTree = "<group>"; };
 		4396CC982A1F477000FB8495 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		43E8B4E02A1CBDE900F10D39 /* TrainWindowGuide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrainWindowGuide.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +99,8 @@
 				43E8B4FC2A1DE62700F10D39 /* SearchResultsViewController.swift */,
 				43E8B5002A1DE65A00F10D39 /* ResultsDetailViewController.swift */,
 				436F42D42A21E101008EC1DD /* BookmarkViewController.swift */,
+				4371F6492A3C3B51003FDF41 /* SearchResultsTableViewCell.swift */,
+				4371F64A2A3C3B51003FDF41 /* SearchResultsTableViewCell.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -159,6 +165,7 @@
 			files = (
 				43E8B4F02A1CBDEB00F10D39 /* LaunchScreen.storyboard in Resources */,
 				43E8B4ED2A1CBDEB00F10D39 /* Assets.xcassets in Resources */,
+				4371F64C2A3C3B51003FDF41 /* SearchResultsTableViewCell.xib in Resources */,
 				43E8B4EB2A1CBDE900F10D39 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -174,6 +181,7 @@
 				438CB6F82A2F360300112666 /* PinData.swift in Sources */,
 				43E8B4FE2A1DE62700F10D39 /* SearchResultsViewController.swift in Sources */,
 				43E8B4E42A1CBDE900F10D39 /* AppDelegate.swift in Sources */,
+				4371F64B2A3C3B51003FDF41 /* SearchResultsTableViewCell.swift in Sources */,
 				43E8B4E62A1CBDE900F10D39 /* SceneDelegate.swift in Sources */,
 				436F42D62A21E101008EC1DD /* BookmarkViewController.swift in Sources */,
 				43E8B5022A1DE65A00F10D39 /* ResultsDetailViewController.swift in Sources */,
@@ -323,7 +331,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 377B7BZZ6Z;
+				DEVELOPMENT_TEAM = 3A4F76M7GV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TrainWindowGuide/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "アプリの使用中のみ位置情報の取得を許可する";
@@ -354,7 +362,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 377B7BZZ6Z;
+				DEVELOPMENT_TEAM = 3A4F76M7GV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TrainWindowGuide/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "アプリの使用中のみ位置情報の取得を許可する";
