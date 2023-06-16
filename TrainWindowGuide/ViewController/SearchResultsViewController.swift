@@ -117,6 +117,7 @@ class SearchResultsViewController: UIViewController {
         
         // DetailTableViewController側では、pinDatas: [PinData]に基づきTableViewを表示する
         // TableViewのせるが選択されたタイミングで、ResultsDetailViewControllerへ画面遷移を行う
+        // カスタムTableViewの参考に https://ios-docs.dev/customcell/
     }
 }
 
