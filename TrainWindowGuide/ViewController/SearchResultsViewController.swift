@@ -9,7 +9,7 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class SearchResultsViewController: UIViewController {
+class SearchResultsViewController: UIViewController, UITableViewDataSource {
     var myLock = NSLock()
     let goldenRatio = 1.618
     @IBOutlet weak var mapView: MKMapView!
@@ -83,16 +83,24 @@ class SearchResultsViewController: UIViewController {
         myLock.unlock()
     }
     
+    
     @IBAction func searchThisAreaPressed() {
-        // 表示している範囲をとる
-        var center: CLLocationCoordinate2D
-        var span: MKCoordinateSpan
+        // 表示している範囲を取得
+        let center = mapView.centerCoordinate
+        let span = mapView.region.span
+
         // 下の式のようにしてpinDatasからfilterをかけ、条件を満たすpinDataの配列を渡す
         // center.latitude - span.latitudeDelta < pinData.latitude < center.latitude + span.latitudeDelta
-        // segueを繋いでおく
-        // pinDatasをsenderとして渡す
+        let filteredPinData = pinDatas.filter { pinData in
+        let latDiff = abs(center.latitude - pinData.latitude)
+        let lonDiff = abs(center.longitude - pinData.longitude)
+        return latDiff < span.latitudeDelta && lonDiff < span.longitudeDelta
+        }
+
+        // segueを実行し、filteredPinDataをsenderとして渡す
+        performSegue(withIdentifier: "toDetailTable", sender: filteredPinData)
     }
-    
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetail" {
@@ -112,12 +120,17 @@ class SearchResultsViewController: UIViewController {
                 }
             }
         }
-        // if segue.identifier == "toDetailTable"
-        // sheetを起動して、sheetのpinDatasにsendarのpinDatasを代入する
         
-        // DetailTableViewController側では、pinDatas: [PinData]に基づきTableViewを表示する
-        // TableViewのせるが選択されたタイミングで、ResultsDetailViewControllerへ画面遷移を行う
-        // カスタムTableViewの参考に https://ios-docs.dev/customcell/
+        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // if segue.identifier == "toDetailTable"
+        if segue.identifier == "toDetailTable" {
+            if let detailViewController = segue.destination as? SearchResultsTableViewCell {
+                if let pinData = sender as? [PinData] {
+                    detailViewController.pinDatas = pinData
+                    // sheetを起動して、sheetのpinDatasにsendarのpinDatasを代入する
+                    // DetailTableViewController側では、pinDatas: [PinData]に基づきTableViewを表示する
+                    // TableViewのせるが選択されたタイミングで、ResultsDetailViewControllerへ画面遷移を行う
+                    // カスタムTableViewの参考に https://ios-docs.dev/customcell/
     }
 }
 
