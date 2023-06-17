@@ -45,10 +45,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="img" destination="Xtj-0c-7Xm" id="x5Y-Oj-h4Y"/>
-                <outlet property="rail" destination="1l9-Dd-gdT" id="nve-WZ-tKi"/>
-                <outlet property="station" destination="yrl-gS-yeh" id="JFo-C9-uor"/>
-                <outlet property="title" destination="Oms-nt-d2R" id="LUy-J5-X08"/>
+                <outlet property="img" destination="Xtj-0c-7Xm" id="Lx5-Qi-ljW"/>
+                <outlet property="rail" destination="1l9-Dd-gdT" id="vTA-JB-ASB"/>
+                <outlet property="station" destination="yrl-gS-yeh" id="M7o-p5-f65"/>
+                <outlet property="title" destination="Oms-nt-d2R" id="hWY-nW-F2F"/>
             </connections>
             <point key="canvasLocation" x="77.099236641221367" y="20.422535211267608"/>
         </tableViewCell>
