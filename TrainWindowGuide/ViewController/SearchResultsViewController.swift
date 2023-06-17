@@ -9,7 +9,7 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class SearchResultsViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UITextFieldDelegate {
+class SearchResultsViewController: UIViewController {
     var myLock = NSLock()
     let goldenRatio = 1.618
     @IBOutlet weak var mapView: MKMapView!
@@ -91,6 +91,7 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate, CLLocati
         
         // 下の式のようにしてpinDatasからfilterをかけ、条件を満たすpinDataの配列を渡す
         // center.latitude - span.latitudeDelta < pinData.latitude < center.latitude + span.latitudeDelta
+        let pinDatas = PinData.DEFAULT_DATAS
         let filteredPinData = pinDatas.filter { pinData in
             let latDiff = abs(center.latitude - pinData.latitude)
             let lonDiff = abs(center.longitude - pinData.longitude)
@@ -133,6 +134,7 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate, CLLocati
             }
         }
     }
+}
     
     extension SearchResultsViewController: CLLocationManagerDelegate {
         func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -185,4 +187,5 @@ class SearchResultsViewController: UIViewController, MKMapViewDelegate, CLLocati
             return true
         }
     }
-}
+
+
